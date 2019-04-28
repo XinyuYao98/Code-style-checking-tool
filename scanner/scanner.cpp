@@ -1,10 +1,10 @@
 
 #include<iostream>
-#include<lib>
+#include<lib>    //调用了一个函数库，但未完善
 using RE = VBF.Compilers.Scanners.RegularExpression;
 
 int main(){
-	
+	//字典：存放词素（lexeme）
 	Lexicon lexicon = new Lexicon();
 	LexerState lexer = lexicon.DefaultLexer;
 
@@ -17,7 +17,7 @@ int main(){
 
 	ScannerInfo info = lexicon.CreateScannerInfo();
 
-	
+	//scanner主体部分
 	Scanner scanner = new Scanner(info);
 
 	string source = "dec5f 1234 if";
