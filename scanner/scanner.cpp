@@ -10,8 +10,19 @@ int main(){
 
 	Token IF = lexer.DefineToken(RE.Literal("if"));
 	Token ELSE = lexer.DefineToken(RE.Literal("else"));
+	/*注：{
+	     RegularExpression re = new KleeneStarExpression(
+             new AlternationExpression(
+             new SymbolExpression('a','z'), new SymbolExpression('0','9')));
+	     }
+	     为了简便改写成var re = (RE.Symbol('a', 'z') | RE.Symbol('0', '9')).Many();
+	     其中调用了库中的函数
+	     以此类推
+	     */
+	
 	Token ID = lexer.DefineToken(RE.Range('a', 'z').Concat(
 		(RE.Range('a', 'z') | RE.Range('0', '9')).Many()));
+	
 	Token NUM = lexer.DefineToken(RE.Range('0', '9').Many1());
 	Token WHITESPACE = lexer.DefineToken(RE.Symbol(' ').Many());
 
