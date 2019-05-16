@@ -1,0 +1,78 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+
+
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class StandardFrame extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	public StandardFrame() {
+		JPanel p=new JPanel();
+		
+		this.setBounds(500, 100, 1000, 800);
+		this.setVisible(true);
+		this.setTitle("Microchecker");
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setContentPane(p);
+		p.setBackground(Color.BLUE);
+
+		JMenuBar menubar;
+		JMenu m1,m2,m3;
+		JMenuItem mi1,mi2,mi3;
+		
+		
+		menubar=new JMenuBar();
+		m1=new JMenu("file");
+		m1.setMnemonic('f');
+		m1.setFont(new Font("Calibri",Font.ITALIC,25));
+		m2=new JMenu("edit");
+		m2.setMnemonic('e');
+		m2.setFont(new Font("Calibri",Font.ITALIC,25));
+		m3=new JMenu("help");
+		m3.setMnemonic('h');
+		m3.setFont(new Font("Calibri",Font.ITALIC,25));
+		mi1=new JMenuItem("open file");
+		mi1.setFont(new Font("Calibri",Font.ITALIC,20));
+		mi2=new JMenuItem("save");
+		mi2.setFont(new Font("Calibri",Font.ITALIC,20));
+		mi3=new JMenuItem("exit");
+		mi3.setFont(new Font("Calibri",Font.ITALIC,20));
+		KeyStroke Ctrl_cutKey=KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_MASK);
+		mi1.setAccelerator(Ctrl_cutKey);
+		Ctrl_cutKey=KeyStroke.getKeyStroke(KeyEvent.VK_S,InputEvent.CTRL_MASK);
+		mi2.setAccelerator(Ctrl_cutKey);
+		Ctrl_cutKey=KeyStroke.getKeyStroke(KeyEvent.VK_E,InputEvent.CTRL_MASK);
+		mi3.setAccelerator(Ctrl_cutKey);
+		
+		setJMenuBar(menubar);
+		menubar.add(m1);
+		menubar.add(m2);
+		menubar.add(m3);	
+		m1.add(mi1);
+		m1.addSeparator();
+		m1.add(mi2);
+		m1.addSeparator();
+		m1.add(mi3);
+		
+		
+		
+		
+
+	}
+	
+	public static void main(String[] args) {
+		 new StandardFrame();
+	}
+}
